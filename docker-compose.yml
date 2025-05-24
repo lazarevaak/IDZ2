@@ -1,0 +1,86 @@
+version: "3.9"
+
+services:
+  database:
+    image: postgres:15
+    container_name: gateway_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: gatewaydb
+    ports:
+      - "5444:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d gatewaydb"]
+      interval: 5s
+      retries: 5
+
+  storage-service:
+    build:
+      context: ./FileStoringService
+      dockerfile: Dockerfile
+    container_name: storage-service
+    depends_on:
+      database:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_URLS: http://+:80
+      ConnectionStrings__MainDb: "Host=database;Port=5432;Username=user;Password=pass;Database=gatewaydb"
+    ports:
+      - "6010:80"
+    volumes:
+      - files_volume:/app/Files
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 5s
+      retries: 3
+
+  analysis-service:
+    build:
+      context: ./FileAnalisysService
+      dockerfile: Dockerfile
+    container_name: analysis-service
+    depends_on:
+      database:
+        condition: service_healthy
+      storage-service:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_URLS: http://+:80
+      ConnectionStrings__AnalysisDb: "Host=database;Port=5432;Username=user;Password=pass;Database=gatewaydb"
+      FileStore__Url: "http://storage-service"
+      CloudGen__Url: "https://quickchart.io"
+    ports:
+      - "6011:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 5s
+      retries: 3
+
+  gateway-service:
+    build:
+      context: ./APIGateway
+      dockerfile: Dockerfile
+    container_name: gateway-service
+    depends_on:
+      storage-service:
+        condition: service_healthy
+      analysis-service:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_URLS: http://+:80
+      Downstream__Storage: "http://storage-service"
+      Downstream__Analyzer: "http://analysis-service"
+    ports:
+      - "6015:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 5s
+      retries: 3
+
+volumes:
+  pgdata:
+  files_volume:

@@ -1,0 +1,54 @@
+﻿<Properties StartupConfiguration="{E758C95C-E410-4C00-AAEE-D29DF3105776}|https">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FileAnalisysService/Controllers/AnalysisController.cs">
+    <Files>
+      <File FileName="FileStoringService/Program.cs" Line="28" Column="1" />
+      <File FileName="FileStoringService/appsettings.json" Line="13" Column="1" />
+      <File FileName="FileStoringService/FilesDb.cs" Line="15" Column="1" />
+      <File FileName="FileStoringService/FileMeta.cs" Line="14" Column="1" />
+      <File FileName="FileStoringService/Controllers/FilesController.cs" Line="22" Column="20" />
+      <File FileName="FileStoringService/Dockerfile" Line="17" Column="1" />
+      <File FileName="FileAnalisysService/Controllers/AnalysisController.cs" Line="25" Column="10" />
+      <File FileName="FileAnalisysService/appsettings.json" Line="19" Column="1" />
+      <File FileName="FileAnalisysService/Dockerfile" Line="17" Column="1" />
+      <File FileName="FileAnalisysService/Program.cs" Line="43" Column="1" />
+      <File FileName="APIGateway/Program.cs" Line="81" Column="44" />
+      <File FileName="APIGateway/appsettings.json" Line="14" Column="1" />
+      <File FileName="APIGateway/Dockerfile" Line="15" Column="29" />
+      <File FileName="FileStoringService/DTOs/FileUploadDto.cs" Line="11" Column="1" />
+      <File FileName="FileAnalisysService/Data/AnalysisDb.cs" Line="12" Column="1" />
+      <File FileName="FileAnalisysService/Models/ReportData.cs" Line="15" Column="1" />
+      <File FileName="FileAnalisysService/Models/UploadResult.cs" Line="7" Column="1" />
+      <File FileName="FileAnalisysService/Services/TextAnalyzer.cs" Line="19" Column="6" />
+      <File FileName="Test/FilesControllerTests.cs" Line="17" Column="2" />
+      <File FileName="Test/AnalysisControllerTests.cs" Line="83" Column="1" />
+      <File FileName="FileAnalisysService/Services/ITextAnalyzer.cs" Line="14" Column="1" />
+      <File FileName="Test/TextAnalyzerTests.cs" Line="112" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="IDZ_2" expanded="True">
+            <Node name="APIGateway" expanded="True" />
+            <Node name="FileAnalisysService" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="AnalysisController.cs" selected="True" />
+              </Node>
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Services" expanded="True" />
+            </Node>
+            <Node name="Test" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.FileStoringService PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.APIGateway FirstBuild="True" />
+</Properties>

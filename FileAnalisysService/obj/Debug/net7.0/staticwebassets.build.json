@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "DQoRcmpwjfKH43APdZSQwEcWaCpyX41GewdSf36c9KA=",
+  "Source": "FileAnalisysService",
+  "BasePath": "_content/FileAnalisysService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
